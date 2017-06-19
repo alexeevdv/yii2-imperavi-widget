@@ -50,7 +50,7 @@ class FileHelper extends BaseFileHelper
             if ($file === '.' || $file === '..') {
                 continue;
             }
-            $path = $dir . DIRECTORY_SEPARATOR . $file;
+            $path = realpath($dir . DIRECTORY_SEPARATOR . $file);
             if (static::filterPath($path, $options)) {
                 if (is_file($path)) {
                     if (isset($options['url'])) {
